@@ -50,5 +50,5 @@ resource "aws_route_table_association" "devsecops" {
   count = 2
 
   subnet_id      = aws_subnet.devsecops.*.id[count.index]
-  route_table_id = aws_route_table.devesecops.id
+  route_table_id = aws_route_table.devsecops.id
 }
