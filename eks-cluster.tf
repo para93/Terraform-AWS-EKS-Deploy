@@ -52,7 +52,7 @@ resource "aws_security_group" "devsecops-cluster" {
 }
 
 resource "aws_security_group_rule" "devsecops-cluster-ingress-workstation-https" {
-  cidr_blocks       = [50.18.82.67/32]
+  cidr_blocks       = ["47.181.113.92/32"]
   description       = "Allow workstation to communicate with the cluster API Server"
   from_port         = 22
   protocol          = "tcp"
