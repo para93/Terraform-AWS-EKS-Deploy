@@ -42,6 +42,7 @@ resource "aws_eks_node_group" "devsecops" {
   cluster_name    = aws_eks_cluster.devsecops.name
   ami             = "ami-0629230e074c580f2"
   instance_type   = "t2.micro"
+  key_name        = "mchung-dell-pem"
   node_group_name = "devsecops"
   node_role_arn   = aws_iam_role.devsecops-node.arn
   subnet_ids      = aws_subnet.devsecops[*].id
