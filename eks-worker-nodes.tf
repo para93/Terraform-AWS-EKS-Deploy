@@ -40,14 +40,17 @@ resource "aws_iam_role_policy_attachment" "devsecops-node-AmazonEC2ContainerRegi
 
 resource "aws_eks_node_group" "devsecops" {
   cluster_name    = aws_eks_cluster.devsecops.name
+  ami             = "ami-0629230e074c580f2"
+  instance_type   = "t2.micro"
   node_group_name = "devsecops"
   node_role_arn   = aws_iam_role.devsecops-node.arn
   subnet_ids      = aws_subnet.devsecops[*].id
 
+
   scaling_config {
-    desired_size = 1
-    max_size     = 1
-    min_size     = 1
+    desired_size = 3
+    max_size     = 5
+    min_size     = 3
   }
 
   depends_on = [
