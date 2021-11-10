@@ -28,10 +28,6 @@ resource "aws_iam_role_policy_attachment" "devsecops-node-AmazonEKSWorkerNodePol
   role       = aws_iam_role.devsecops-node.name
 }
 
-resource "aws_iam_role_policy_attachment" "devsecops-node-AmazonEKS_CNI_Policy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-  role       = aws_iam_role.devsecops-node.name
-}
 
 resource "aws_iam_role_policy_attachment" "devsecops-node-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"

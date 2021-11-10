@@ -34,6 +34,11 @@ resource "aws_iam_role_policy_attachment" "devsecops-cluster-AmazonEKSVPCResourc
   role       = aws_iam_role.devsecops-cluster.name
 }
 
+resource "aws_iam_role_policy_attachment" "devsecops-node-AmazonEKS_CNI_Policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  role       = aws_iam_role.devsecops-cluster.name
+}
+
 resource "aws_security_group" "devsecops-cluster" {
   name        = "terraform-eks-devsecops-cluster"
   description = "Cluster communication with worker nodes"
